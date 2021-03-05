@@ -1,0 +1,48 @@
+.search-item {
+    max-width: 18%;
+    padding-right: 20px;
+    flex: 1;
+}
+
+.card {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+
+    &-hoverable {
+        cursor: pointer;
+        -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+        transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+        transition: box-shadow 0.3s, border-color 0.3s;
+        transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
+    }
+}
+
+
+.card-cover {
+    margin-top: -1px;
+    margin-right: -1px;
+    margin-left: -1px;
+    height: 15vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card-detail {
+    overflow: hidden;
+}

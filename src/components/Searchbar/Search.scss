@@ -1,0 +1,32 @@
+.searchbar {
+    display: flex;
+    padding-left: 30px;
+    width: 50%;
+    position: relative;
+}
+
+.textbox-wrapper {
+    flex: 1;
+}
+
+.textbox {
+    width: 100%;
+    padding: 0px 20px;
+    outline: 0;
+    border-radius: 40px;
+    border: 1px solid #fff;
+    background: #000;
+    color: #fff;
+    height: 44px;
+}
+
+.search-button {
+    position: absolute;
+    top: 11px;
+    right: 1px;
+    width: 44px;
+    height: 42px;
+    border-radius: 40px;
+    background: #e50916!important;
+    border: none;
+}
