@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.dark.css';
 import { Layout } from 'antd';
-import { Counter } from './components/counter/Counter';
+// import { Counter } from './components/counter/Counter';
 import { Navbar } from "./containers/navbar/Navbar";
 import { Movie } from "./components/MovieDetail/MovieDetail"
 import { Actor } from "./components/ActorDetail/ActorDetail"
@@ -28,7 +28,7 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/">
-                <Counter />
+                {/* <Counter /> */}
               </Route>
               <Route path="/search">
                 <SearchResults />

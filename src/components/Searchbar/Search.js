@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+    search
+} from '../../app/reducer';
 import { Button } from 'antd';
 import {
     SearchOutlined
@@ -8,10 +12,16 @@ import './Search.scss';
 
 export function Search() {
 
+    const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState("")
 
+
     const handleSearch = (keyword) => {
-        setSearchTerm(keyword)
+        setSearchTerm(keyword);
+        if(keyword.length > 5){
+            console.log("dispatching...")
+            dispatch(search(keyword))
+        }
     }
 
 

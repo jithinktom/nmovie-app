@@ -9,7 +9,6 @@ export function Actor() {
 
     return (
         <div className="actor-detail">
-            
             Actor detail page
         </div>
     );
