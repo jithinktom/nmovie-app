@@ -21,14 +21,14 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header className="app-header">
-          <Navbar />
-        </Header>
-        <Content>
-          <Router>
+        <Router>
+          <Header className="app-header">
+            <Navbar />
+          </Header>
+          <Content>
             <Switch>
               <Route exact path="/">
-                {/* <Counter /> */}
+                <SearchResults />
               </Route>
               <Route path="/search">
                 <SearchResults />
@@ -40,9 +40,10 @@ function App() {
                 <Actor />
               </Route>
             </Switch>
-          </Router>
-        </Content>
-        <Footer>Footer</Footer>
+
+          </Content>
+          <Footer>Footer</Footer>
+        </Router>
       </Layout>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import {
     search
 } from '../../app/reducer';
@@ -13,6 +14,8 @@ import './Search.scss';
 export function Search() {
 
     const dispatch = useDispatch();
+    const appHistory = useHistory();
+    console.log({appHistory})
     const [searchTerm, setSearchTerm] = useState("")
 
 
@@ -20,7 +23,7 @@ export function Search() {
         setSearchTerm(keyword);
         if(keyword.length > 5){
             console.log("dispatching...")
-            dispatch(search(keyword))
+            appHistory.push(`/search?query=${keyword}`);
         }
     }
 

@@ -37,6 +37,15 @@ export const search = keyword => async dispatch => {
     dispatch(setMovieList(results));
 };
 
+export const searchRecommendations = () => async dispatch => {
+    const response = await axios({
+        method: 'get',
+        url: `https://api.themoviedb.org/3/discover/movie?api_key=df458795d04dc5b54c9af749ca8fd6bb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+    })
+    const {results} = response.data;
+    dispatch(setMovieList(results));
+};
+
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
