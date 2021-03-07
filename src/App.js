@@ -5,6 +5,7 @@ import { Layout } from 'antd';
 import { Navbar } from "./containers/navbar/Navbar";
 import { Movie } from "./components/MovieDetail/MovieDetail"
 import { Actor } from "./components/ActorDetail/ActorDetail"
+import { Show } from "./components/ShowDetail/ShowDetail"
 import { SearchResults } from "./components/SearchResults/SearchResults"
 import {
   BrowserRouter as Router,
@@ -14,7 +15,7 @@ import {
 import './App.css';
 
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 
 function App() {
   return (
@@ -35,13 +36,15 @@ function App() {
               <Route path="/movie/:id">
                 <Movie />
               </Route>
-              <Route path="/actor/:id">
+              <Route path="/cast/:id">
                 <Actor />
+              </Route>
+              <Route path="/show/:id">
+                <Show />
               </Route>
             </Switch>
 
           </Content>
-          <Footer>Footer</Footer>
         </Router>
       </Layout>
     </div>

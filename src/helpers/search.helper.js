@@ -3,7 +3,8 @@ const filterSearchResults = (results) => {
     const movies = []
     const shows = []
     results.forEach(result => {
-        if ((result.profile_path || result.poster_path) &&
+        if (
+            // (result.profile_path || result.poster_path) &&
             result.id &&
             (result.title || result.name)) {
             if (result.media_type === "person") {
@@ -19,16 +20,17 @@ const filterSearchResults = (results) => {
         }
     })
     return {
-        actors,
-        movies,
-        shows
+        actors: actors.sort((a,b)=> a.popularity - b.popularity),
+        movies: movies.sort((a,b)=> a.popularity - b.popularity),
+        shows: shows.sort((a,b)=> a.popularity - b.popularity)
     }
 }
 
 const filterMovieDetail = (movieDetail) => {
     const actors = []
     movieDetail.credits.cast.forEach(result => {
-        if (result.profile_path &&
+        if (
+            // result.profile_path &&
             result.id &&
             result.name) {
             actors.push(result)
@@ -45,10 +47,11 @@ const filterMovieDetail = (movieDetail) => {
 const filterActorDetail = (actorDetail) => {
     const movies = []
     actorDetail.movie_credits.cast.forEach(result => {
-        if (result.poster_path &&
+        if (
+            // result.poster_path &&
             result.id &&
             result.title) {
-                movies.push(result)
+            movies.push(result)
         }
     })
     return {

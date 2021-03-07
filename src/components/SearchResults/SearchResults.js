@@ -78,12 +78,20 @@ export function SearchResults() {
         return ""
     }
 
+    const renderNoResults = () => {
+        console.log("hello",showsList && showsList.length> 0)
+        if(isSearch && !((showsList && showsList.length > 0) || (moviesList && moviesList.length > 0) || (actorsList && actorsList.length > 0))){
+            return <Title level={4}>Oops! Try searching for other keywords.</Title>
+        }
+    }
+
     return (
         <div className="search-results-wrapper">
             <Title level={4}>{isSearch ? "Search Results" : "Recommended Movies"}</Title>
             {renderMoviesList()}
             {renderActorsList()}
             {renderShowsList()}
+            {renderNoResults()}
         </div>
     );
 }
