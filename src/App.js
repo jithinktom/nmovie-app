@@ -9,8 +9,7 @@ import { SearchResults } from "./components/SearchResults/SearchResults"
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 
@@ -33,10 +32,10 @@ function App() {
               <Route path="/search">
                 <SearchResults />
               </Route>
-              <Route path="/movie/:slug">
+              <Route path="/movie/:id">
                 <Movie />
               </Route>
-              <Route path="/actor/:slug">
+              <Route path="/actor/:id">
                 <Actor />
               </Route>
             </Switch>
