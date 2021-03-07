@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import {
-    search
-} from '../../app/reducer';
 import { Button } from 'antd';
 import {
     SearchOutlined
@@ -12,18 +8,17 @@ import {
 import './Search.scss';
 
 export function Search() {
-
-    const dispatch = useDispatch();
     const appHistory = useHistory();
-    console.log({appHistory})
     const [searchTerm, setSearchTerm] = useState("")
 
 
     const handleSearch = (keyword) => {
         setSearchTerm(keyword);
-        if(keyword.length > 5){
-            console.log("dispatching...")
+        if(keyword.length > 3){
             appHistory.push(`/search?query=${keyword}`);
+        }
+        if(!keyword){
+            appHistory.push(`/`);
         }
     }
 

@@ -1,30 +1,38 @@
-import React, { useState } from 'react';
-import { Card } from 'antd';
+import React from 'react';
 import {
     Link
 } from "react-router-dom";
 import "./SearchItem.scss"
 
-const { Meta } = Card;
-
-
-
 export function SearchItem({ type, data }) {
-    const { poster_path, title } = data;
-    return (
-        <div className="search-item">
-            <Link to={`/${type}/1`}>
-                <div className="card card-hoverable">
-                    <div className="card-cover" style={{ "backgroundImage": `url('http://image.tmdb.org/t/p/w500${poster_path}')` }}>
 
-                    </div>
-                    <div className="card-body">
-                        <div className="card-detail">
-                            <div className="card-title">{title}</div>
-                        </div>
+    const renderItem = (type, id, title, image) => {
+        return <Link to={`/${type}/${id}`}>
+            <div className="card card-hoverable">
+                <div className="card-cover" style={{ "backgroundImage": `url('http://image.tmdb.org/t/p/w500${image}')` }}>
+                </div>
+                <div className="card-body">
+                    <div className="card-detail">
+                        <div className="card-title">{title}</div>
                     </div>
                 </div>
-            </Link>
+            </div>
+        </Link>
+    }
+
+    const renderSearchItem = () => {
+        const { poster_path, title, name, profile_path, id } = data;
+        if (type === "person") {
+            return renderItem("actor", id, name, profile_path)
+        }
+        else if(type === "tv"){
+            return renderItem("show", id, name, poster_path)
+        }
+        return renderItem("movie", id, title, poster_path)
+    }
+    return (
+        <div className="search-item">
+            {renderSearchItem()}
         </div>
     );
 }

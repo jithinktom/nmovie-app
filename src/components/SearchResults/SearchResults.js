@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 import {
     getMoviesList,
+    getActorsList,
+    getShowsList,
     searchRecommendations,
     search
 } from '../../app/reducer';
@@ -18,8 +20,9 @@ export function SearchResults() {
     const dispatch = useDispatch();
 
     const moviesList = useSelector(getMoviesList);
+    const actorsList = useSelector(getActorsList);
+    const showsList = useSelector(getShowsList);
     const location = useLocation();
-    console.log({location})
     const [isSearch, setIsSearch] = useState(location.pathname !== "/")
     useEffect(() => {
         const isSearchPage = location.pathname !== "/"
@@ -31,17 +34,56 @@ export function SearchResults() {
             const keyword = location.search.split("&")[0].split("=")[1]
             dispatch(search(keyword))
         }
-    }, [location])
+    }, [location, dispatch])
+
+    const renderMoviesList = () => {
+        if (moviesList && moviesList.length) {
+            return <Fragment>
+                <Title level={5}>Movies</Title>
+                <div className="results-row">
+                    {moviesList.map((result => {
+                        return <SearchItem key={result.id} type={result.media_type} data={result} />
+                    }))}
+                </div>
+            </Fragment>
+        }
+        return "";
+    }
+
+    const renderActorsList = () => {
+        if (actorsList && actorsList.length) {
+            return <Fragment>
+                <Title level={5}>Actors</Title>
+                <div className="results-row">
+                    {actorsList.map((result => {
+                        return <SearchItem key={result.id} type={result.media_type} data={result} />
+                    }))}
+                </div>
+            </Fragment>
+        }
+        return ""
+    }
+
+    const renderShowsList = () => {
+        if (showsList && showsList.length) {
+            return <Fragment>
+                <Title level={5}>Shows</Title>
+                <div className="results-row">
+                    {showsList.map((result => {
+                        return <SearchItem key={result.id} type={result.media_type} data={result} />
+                    }))}
+                </div>
+            </Fragment>
+        }
+        return ""
+    }
 
     return (
         <div className="search-results-wrapper">
             <Title level={4}>{isSearch ? "Search Results" : "Recommended Movies"}</Title>
-            {/* <Title level={5}>Movies</Title> */}
-            <div className="results-row">
-                {moviesList.map((movie => {
-                    return <SearchItem key={movie.id} type="movie" data={movie} />
-                }))}
-            </div>
+            {renderMoviesList()}
+            {renderActorsList()}
+            {renderShowsList()}
         </div>
     );
 }
