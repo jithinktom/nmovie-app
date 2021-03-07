@@ -3,10 +3,12 @@
     padding-left: 30px;
     width: 50%;
     position: relative;
+    min-width: 230px;
 }
 
-.textbox-wrapper {
+.textbox-wrapper, form {
     flex: 1;
+    position: relative;
 }
 
 .textbox {

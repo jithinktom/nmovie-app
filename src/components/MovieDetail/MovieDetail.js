@@ -27,7 +27,7 @@ export function Movie() {
                 <Fragment>
                     <Title level={4}>{movieDetail.title}</Title>
                     <div className="movie-poster">
-                        <img alt={movieDetail.title} src={`http://image.tmdb.org/t/p/w500${movieDetail.poster_path}`} />
+                        <img alt={movieDetail.title} src={movieDetail.poster_path ? `http://image.tmdb.org/t/p/w500${movieDetail.poster_path}`: "https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg"} />
                     </div>
                     <Descriptions title="" bordered>
                         <Descriptions.Item label="Vote Average">{movieDetail.vote_average}</Descriptions.Item>

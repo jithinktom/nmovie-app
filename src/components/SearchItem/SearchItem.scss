@@ -1,6 +1,7 @@
 .search-item {
     padding-right: 20px;
     width: 16.25%;
+    min-width: 300px;
     margin-bottom: 20px;
 }
 
@@ -44,12 +45,16 @@
     margin-right: -1px;
     margin-left: -1px;
     height: 15vw;
+    min-height: 180px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-image: url("https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg");
 }
 
 .card-body {
     padding: 24px;
+    background: #202020;
+    color: #fff;
 }
 
 .card-detail {

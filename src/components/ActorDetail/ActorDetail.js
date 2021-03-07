@@ -27,7 +27,7 @@ export function Actor() {
                 <Fragment>
                     <Title level={4}>{actorDetail.name}</Title>
                     <div className="movie-poster">
-                        <img alt={actorDetail.name} src={`http://image.tmdb.org/t/p/w500${actorDetail.profile_path}`} />
+                        <img alt={actorDetail.name} src={actorDetail.profile_path ? `http://image.tmdb.org/t/p/w500${actorDetail.profile_path}`: "https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg"} />
                     </div>
                     <Descriptions title="" bordered>
                         <Descriptions.Item label="Birthday">{actorDetail.birthday}</Descriptions.Item>
