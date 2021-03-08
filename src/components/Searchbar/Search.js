@@ -8,6 +8,7 @@ import {
 import {
     search
 } from '../../app/reducer';
+import constants from "../../helpers/constants";
 import { Suggestions } from "../Suggestions/Suggestions"
 
 import './Search.scss';
@@ -24,9 +25,9 @@ export function Search() {
     const handleSearch = (keyword) => {
         setSearchTerm(keyword);
         console.log(keyword.length)
-        if (keyword.length > 4) {
+        if (keyword.length > constants.MIN_SEARCH_LENGTH) {
+            dispatch(search(keyword, true));
             setShowSuggestions(true)
-            dispatch(search(keyword, true))
         }
         else {
             setShowSuggestions(false)
