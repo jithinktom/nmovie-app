@@ -2,6 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { filterSearchResults, filterMovieDetail, filterActorDetail } from "../helpers/search.helper";
 import axios from 'axios';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 export const moviesSlice = createSlice({
     name: 'movies',
     initialState: {
@@ -47,7 +50,7 @@ export const { setResults, setSelectedMovie, setSelectedActor, setSelectedShow, 
 export const search = (keyword, suggestionsSearch = false) => async dispatch => {
     const response = await axios({
         method: 'get',
-        url: `https://api.themoviedb.org/3/search/multi?api_key=df458795d04dc5b54c9af749ca8fd6bb&language=en-US&query=${keyword}&page=1&include_adult=true`
+        url: `${BASE_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=true`
     })
     const { results } = response.data;
     const filteredData = filterSearchResults(results)
@@ -62,7 +65,7 @@ export const search = (keyword, suggestionsSearch = false) => async dispatch => 
 export const searchRecommendations = () => async dispatch => {
     const response = await axios({
         method: 'get',
-        url: `https://api.themoviedb.org/3/discover/movie?api_key=df458795d04dc5b54c9af749ca8fd6bb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+        url: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
     })
     const { results } = response.data;
     const filteredData = filterSearchResults(results)
@@ -72,7 +75,7 @@ export const searchRecommendations = () => async dispatch => {
 export const searchMovieDetail = (id) => async dispatch => {
     const response = await axios({
         method: 'get',
-        url: `https://api.themoviedb.org/3/movie/${id}?api_key=df458795d04dc5b54c9af749ca8fd6bb&language=en-US&append_to_response=credits`
+        url: `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US&append_to_response=credits`
     })
     const movieDetails = response.data;
     const filteredData = filterMovieDetail(movieDetails)
@@ -82,7 +85,7 @@ export const searchMovieDetail = (id) => async dispatch => {
 export const searchActorDetail = (id) => async dispatch => {
     const response = await axios({
         method: 'get',
-        url: `https://api.themoviedb.org/3/person/${id}?api_key=df458795d04dc5b54c9af749ca8fd6bb&language=en-US&append_to_response=movie_credits`
+        url: `${BASE_URL}/person/${id}?api_key=${API_KEY}&language=en-US&append_to_response=movie_credits`
     })
     const actorDetails = response.data;
     const filteredData = filterActorDetail(actorDetails)
@@ -92,7 +95,7 @@ export const searchActorDetail = (id) => async dispatch => {
 export const searchShowDetail = (id) => async dispatch => {
     const response = await axios({
         method: 'get',
-        url: `https://api.themoviedb.org/3/tv/${id}?api_key=df458795d04dc5b54c9af749ca8fd6bb&language=en-US&append_to_response=credits`
+        url: `${BASE_URL}/tv/${id}?api_key=${API_KEY}&language=en-US&append_to_response=credits`
     })
     const showDetails = response.data;
     const filteredData = filterMovieDetail(showDetails)

@@ -8,6 +8,7 @@ import {
     searchShowDetail
 } from '../../app/reducer';
 import "../MovieDetail/MovieDetail.scss";
+import { renderImage } from '../../helpers/render.helper';
 
 const { Title } = Typography;
 
@@ -28,7 +29,7 @@ export function Show() {
                 <Fragment>
                     <Title level={4}>{showDetail.title}</Title>
                     <div className="movie-poster">
-                        <img alt={showDetail.title} src={showDetail.poster_path ? `http://image.tmdb.org/t/p/w500${showDetail.poster_path}`: "https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg"} />
+                        <img alt={showDetail.title} src={renderImage(showDetail.poster_path)} />
                     </div>
                     <Descriptions title="" bordered>
                         <Descriptions.Item label="Vote Average">{showDetail.vote_average}</Descriptions.Item>
