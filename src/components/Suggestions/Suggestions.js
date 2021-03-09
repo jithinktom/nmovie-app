@@ -4,7 +4,6 @@ import {
     getSuggestions
 } from '../../app/reducer';
 import { List, Typography, Divider } from 'antd';
-import "./Suggestions.scss";
 
 export function Suggestions({ handleClick }) {
 
@@ -13,8 +12,8 @@ export function Suggestions({ handleClick }) {
     const { movies, actors, shows } = suggestions;
     const urlMap = {
         "movie": "movie",
-        "person": "cast",
-        "tv": "show"
+        "person": "person",
+        "tv": "tv"
     }
 
     const renderList = (title, arr) => {

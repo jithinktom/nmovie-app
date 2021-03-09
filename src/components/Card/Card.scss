@@ -22,21 +22,22 @@
     position: relative;
     background: #fff;
     border-radius: 2px;
+    cursor: pointer;
+    -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+    transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
 
-    &-hoverable {
-        cursor: pointer;
-        -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
-        transition: border-color 0.3s, -webkit-box-shadow 0.3s;
-        transition: box-shadow 0.3s, border-color 0.3s;
-        transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
+    &:hover {
+        transform: scale(1.15);
+        z-index: 2;
+        transition: all 0.1s linear;
+        -webkit-box-shadow: 0px 11px 28px -2px #000;
+        -moz-box-shadow: 0px 11px 28px -2px #000;
+        box-shadow: 0px 11px 28px -2px #000;
 
-        &:hover {
-            transform: scale(1.15);
-            z-index: 2;
-            transition: all 0.1s linear;
-            -webkit-box-shadow: 0px 11px 28px -2px #000;
-            -moz-box-shadow: 0px 11px 28px -2px #000;
-            box-shadow: 0px 11px 28px -2px #000;
+        .card-title {
+            white-space: normal;
         }
     }
 }
@@ -61,4 +62,10 @@
 
 .card-detail {
     overflow: hidden;
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
