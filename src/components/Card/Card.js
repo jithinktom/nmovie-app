@@ -2,14 +2,15 @@ import React from 'react';
 import {
     Link
 } from "react-router-dom";
-import "./SearchItem.scss"
+import constants from '../../helpers/constants';
+import "./Card.scss"
 
-export function SearchItem({ type, data }) {
+export function Card({ type, data }) {
 
     const renderItem = (type, id, title, image) => {
         return <Link to={`/${type}/${id}`}>
-            <div className="card card-hoverable">
-                <div className="card-cover" style={image ? { "backgroundImage": `url('http://image.tmdb.org/t/p/w500${image}')` }: {}}>
+            <div className="card">
+                <div className="card-cover" style={image ? { "backgroundImage": `url('${constants.IMAGE_BASE_URL}${image}')` }: {}}>
                 </div>
                 <div className="card-body">
                     <div className="card-detail">
@@ -23,10 +24,10 @@ export function SearchItem({ type, data }) {
     const renderSearchItem = () => {
         const { poster_path, title, name, profile_path, id } = data;
         if (type === "person") {
-            return renderItem("cast", id, name, profile_path)
+            return renderItem("person", id, name, profile_path)
         }
         else if(type === "tv"){
-            return renderItem("show", id, name, poster_path)
+            return renderItem("tv", id, name, poster_path)
         }
         return renderItem("movie", id, title, poster_path)
     }

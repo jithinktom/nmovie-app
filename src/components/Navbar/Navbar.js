@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from "../Searchbar/Search"
+import { Search } from "../Searchbar/Searchbar"
 import { useHistory } from "react-router-dom";
 import './Navbar.scss';
 

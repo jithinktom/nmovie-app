@@ -8,7 +8,8 @@ const constants =  {
         { label: 'Movies', value: 'movie' },
         { label: 'Actors', value: 'person' },
         { label: 'Tv', value: 'tv' }
-      ]
+      ],
+      DEFAULT_TEXT: "N/A"
 }
 
 export default constants;

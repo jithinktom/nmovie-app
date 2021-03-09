@@ -11,7 +11,7 @@ import {
 import constants from "../../helpers/constants";
 import { Suggestions } from "../Suggestions/Suggestions"
 
-import './Search.scss';
+import './Searchbar.scss';
 
 export function Search() {
     const appHistory = useHistory();

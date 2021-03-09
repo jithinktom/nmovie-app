@@ -1,17 +1,14 @@
 import React from 'react';
-import './App.less';
+import './App.css';
 import { Layout } from 'antd';
-// import { Counter } from './components/counter/Counter';
 import { Navbar } from "./components/Navbar/Navbar";
-import { Movie } from "./components/MovieDetail/MovieDetail"
-import { Actor } from "./components/ActorDetail/ActorDetail"
-import { Show } from "./components/ShowDetail/ShowDetail"
 import { SearchResults } from "./components/SearchResults/SearchResults"
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { Detail } from './components/Detail/Detail';
 
 
 const { Header, Content } = Layout;
@@ -24,7 +21,7 @@ function App() {
           <Header className="app-header">
             <Navbar />
           </Header>
-          <Content>
+          <Content className="layout-wrapper">
             <Switch>
               <Route exact path="/">
                 <SearchResults />
@@ -33,13 +30,13 @@ function App() {
                 <SearchResults />
               </Route>
               <Route path="/movie/:id">
-                <Movie />
+                <Detail resource="movie" />
               </Route>
-              <Route path="/cast/:id">
-                <Actor />
+              <Route path="/person/:id">
+                <Detail resource="person" />
               </Route>
-              <Route path="/show/:id">
-                <Show />
+              <Route path="/tv/:id">
+                <Detail resource="tv" />
               </Route>
             </Switch>
 
