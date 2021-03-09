@@ -18,9 +18,9 @@ const filterSearchResults = (results, searchOption) => {
         }
     })
     return {
-        actors: actors.sort((a, b) => a.popularity - b.popularity),
-        movies: movies.sort((a, b) => a.popularity - b.popularity),
-        shows: shows.sort((a, b) => a.popularity - b.popularity)
+        actors: actors.sort((a, b) => b.popularity - a.popularity),
+        movies: movies.sort((a, b) => b.popularity - a.popularity),
+        shows: shows.sort((a, b) => b.popularity - a.popularity)
     }
 }
 

@@ -6,8 +6,8 @@ const constants =  {
     SEARCH_OPTIONS: [
         { label: 'All', value: 'multi' },
         { label: 'Movies', value: 'movie' },
-        { label: 'Actors', value: 'person' },
-        { label: 'Tv', value: 'tv' }
+        { label: 'TV Shows', value: 'tv' },
+        { label: 'Actors', value: 'person' }
       ]
 }
 
