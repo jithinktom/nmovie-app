@@ -3,13 +3,10 @@ import { useSelector } from 'react-redux';
 import {
     getSuggestions
 } from '../../app/reducer';
-import {
-    Link
-} from "react-router-dom";
 import { List, Typography, Divider } from 'antd';
 import "./Suggestions.scss";
 
-export function Suggestions() {
+export function Suggestions({ handleClick }) {
 
     const suggestions = useSelector(getSuggestions);
 
@@ -21,7 +18,7 @@ export function Suggestions() {
     }
 
     const renderList = (title, arr) => {
-        const newarr = arr.slice(0,3)
+        const newarr = arr.slice(0, 3)
         if (newarr.length)
             return <>
                 <Divider orientation="left">{title}</Divider>
@@ -29,18 +26,16 @@ export function Suggestions() {
                     bordered
                     dataSource={newarr}
                     renderItem={item => (
-                        <Link to={`/${urlMap[item.media_type]}/${item.id}`}>
-                            <List.Item>
-                                <Typography.Text mark></Typography.Text>{item.title || item.name}
-                            </List.Item>
-                        </Link>
+                        <List.Item onClick={() => handleClick(`/${urlMap[item.media_type]}/${item.id}`)}>
+                            <Typography.Text mark></Typography.Text>{item.title || item.name}
+                        </List.Item>
                     )}
                 />
             </>
     }
 
     return (
-        <div className="suggestions-wrapper">
+        <div>
             <>
                 {renderList("Movies", movies)}
                 {renderList("Actors", actors)}

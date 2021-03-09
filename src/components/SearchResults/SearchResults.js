@@ -6,7 +6,7 @@ import {
     getActorsList,
     getShowsList,
     searchRecommendations,
-    search
+    multiSearch
 } from '../../app/reducer';
 
 import { SearchItem } from "../SearchItem/SearchItem"
@@ -32,7 +32,8 @@ export function SearchResults() {
         }
         else {
             const keyword = location.search.split("&")[0].split("=")[1]
-            dispatch(search(keyword))
+            const searchOption = location.search.split("options=")[1]
+            dispatch(multiSearch(keyword, searchOption, false))
         }
     }, [location, dispatch])
 
@@ -42,7 +43,7 @@ export function SearchResults() {
                 <Title level={5}>Movies</Title>
                 <div className="results-row">
                     {moviesList.map((result => {
-                        return <SearchItem key={result.id} type={result.media_type} data={result} />
+                        return <SearchItem key={result.id} type="movie" data={result} />
                     }))}
                 </div>
             </Fragment>
@@ -56,7 +57,7 @@ export function SearchResults() {
                 <Title level={5}>Actors</Title>
                 <div className="results-row">
                     {actorsList.map((result => {
-                        return <SearchItem key={result.id} type={result.media_type} data={result} />
+                        return <SearchItem key={result.id} type="person" data={result} />
                     }))}
                 </div>
             </Fragment>
@@ -70,7 +71,7 @@ export function SearchResults() {
                 <Title level={5}>Shows</Title>
                 <div className="results-row">
                     {showsList.map((result => {
-                        return <SearchItem key={result.id} type={result.media_type} data={result} />
+                        return <SearchItem key={result.id} type="tv" data={result} />
                     }))}
                 </div>
             </Fragment>
@@ -79,7 +80,6 @@ export function SearchResults() {
     }
 
     const renderNoResults = () => {
-        console.log("hello",showsList && showsList.length> 0)
         if(isSearch && !((showsList && showsList.length > 0) || (moviesList && moviesList.length > 0) || (actorsList && actorsList.length > 0))){
             return <Title level={4}>Oops! Try searching for other keywords.</Title>
         }

@@ -47,13 +47,14 @@ export const { setResults, setSelectedMovie, setSelectedActor, setSelectedShow, 
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
-export const search = (keyword, suggestionsSearch = false) => async dispatch => {
+export const multiSearch = (keyword, searchOption, suggestionsSearch = false) => async dispatch => {
+    let API_URL = `${BASE_URL}/search/${searchOption}?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`;
     const response = await axios({
         method: 'get',
-        url: `${BASE_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=true`
+        url: API_URL
     })
     const { results } = response.data;
-    const filteredData = filterSearchResults(results)
+    const filteredData = filterSearchResults(results, searchOption)
     if (suggestionsSearch) {
         dispatch(setSuggestions(filteredData));
     }

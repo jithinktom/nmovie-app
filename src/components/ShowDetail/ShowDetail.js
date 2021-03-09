@@ -16,7 +16,6 @@ export function Show() {
     const dispatch = useDispatch();
     const params = useParams();
     const showDetail = useSelector(getSelectedShow);
-    console.log({showDetail})
     useEffect(() => {
         const { id } = params;
         if (id) {

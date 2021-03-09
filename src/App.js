@@ -1,8 +1,8 @@
 import React from 'react';
-import 'antd/dist/antd.dark.css';
+import './App.less';
 import { Layout } from 'antd';
 // import { Counter } from './components/counter/Counter';
-import { Navbar } from "./containers/navbar/Navbar";
+import { Navbar } from "./components/Navbar/Navbar";
 import { Movie } from "./components/MovieDetail/MovieDetail"
 import { Actor } from "./components/ActorDetail/ActorDetail"
 import { Show } from "./components/ShowDetail/ShowDetail"
@@ -12,7 +12,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import './App.css';
 
 
 const { Header, Content } = Layout;
