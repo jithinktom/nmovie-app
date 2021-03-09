@@ -1,8 +1,14 @@
 const constants =  {
-    MIN_SEARCH_LENGTH : 5,
+    MIN_SEARCH_LENGTH : 4,
     DEFAULT_IMAGE: "https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg",
     NO_RESULTS_TEXT: "Oops! Try searching for other keywords.",
-    IMAGE_BASE_URL: "http://image.tmdb.org/t/p/w500"
+    IMAGE_BASE_URL: "http://image.tmdb.org/t/p/w500",
+    SEARCH_OPTIONS: [
+        { label: 'All', value: 'multi' },
+        { label: 'Movies', value: 'movie' },
+        { label: 'Actors', value: 'person' },
+        { label: 'Tv', value: 'tv' }
+      ]
 }
 
 export default constants;
