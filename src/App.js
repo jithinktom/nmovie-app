@@ -1,15 +1,10 @@
 import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
-import { Navbar } from "./components/Navbar/Navbar";
-import { SearchResults } from "./components/SearchResults/SearchResults"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Navbar } from './components/Navbar/Navbar';
+import { SearchResults } from './components/SearchResults/SearchResults';
 import { Detail } from './components/Detail/Detail';
-
 
 const { Header, Content } = Layout;
 
@@ -39,7 +34,6 @@ function App() {
                 <Detail resource="tv" />
               </Route>
             </Switch>
-
           </Content>
         </Router>
       </Layout>
