@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import constants from '../../helpers/constants';
 import './Card.scss';
 
 export function Card({ type, data }) {
-  const renderItem = (type, id, title, image) => (
-    <Link to={`/${type}/${id}`}>
+  const renderItem = (itemType, id, title, image) => (
+    <Link to={`/${itemType}/${id}`}>
       <div className="card">
         <div
           className="card-cover"
@@ -26,6 +27,7 @@ export function Card({ type, data }) {
 
   const renderSearchItem = () => {
     const {
+      // eslint-disable-next-line camelcase
       poster_path, title, name, profile_path, id,
     } = data;
     if (type === 'person') {
@@ -37,3 +39,8 @@ export function Card({ type, data }) {
   };
   return <div className="search-item">{renderSearchItem()}</div>;
 }
+
+Card.propTypes = {
+  type: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
+};

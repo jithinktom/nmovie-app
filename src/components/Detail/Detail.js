@@ -1,6 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Descriptions, Typography } from 'antd';
 import { getSelectedResource, searchDetail } from '../../app/reducer';
 import { Card } from '../Card/Card';
@@ -67,4 +68,8 @@ export const Detail = ({ resource }) => {
       )}
     </div>
   );
+};
+
+Detail.propTypes = {
+  resource: PropTypes.string.isRequired,
 };

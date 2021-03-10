@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { List, Typography, Divider } from 'antd';
 import { getSuggestions } from '../../app/reducer';
 
@@ -34,6 +35,7 @@ export function Suggestions({ handleClick }) {
         </>
       );
     }
+    return <></>;
   };
 
   return (
@@ -46,3 +48,7 @@ export function Suggestions({ handleClick }) {
     </div>
   );
 }
+
+Suggestions.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+};

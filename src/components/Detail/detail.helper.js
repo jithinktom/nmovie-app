@@ -134,4 +134,5 @@ export const mapDetails = (resourceDetails, resource) => {
   } if (resource === 'tv') {
     return mapTv(resourceDetails);
   }
+  return {};
 };

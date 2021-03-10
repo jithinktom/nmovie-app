@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Typography } from 'antd';
@@ -54,6 +54,7 @@ export function SearchResults() {
     ) {
       return <Title level={4}>Oops! Try searching for other keywords.</Title>;
     }
+    return <></>;
   };
 
   return (

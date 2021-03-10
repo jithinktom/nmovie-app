@@ -13,6 +13,7 @@ const filterSearchResults = (results, searchOption) => {
       }
       return result;
     }
+    return '';
   });
   return {
     actors: actors.sort((a, b) => b.popularity - a.popularity),

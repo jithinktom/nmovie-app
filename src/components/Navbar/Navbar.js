@@ -6,13 +6,18 @@ import './Navbar.scss';
 export function Navbar() {
   const history = useHistory();
 
+  const handleClick = () => {
+    history.push('/');
+  };
+
   return (
     <div className="navbar">
       <div
         className="logo"
-        onClick={() => {
-          history.push('/');
-        }}
+        role="button"
+        tabIndex={0}
+        onClick={() => handleClick()}
+        onKeyDown={() => handleClick()}
       >
         <img alt="K_logo" src="sky_logo.png" />
       </div>
