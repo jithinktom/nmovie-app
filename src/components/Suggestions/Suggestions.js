@@ -8,13 +8,8 @@ export function Suggestions({ handleClick }) {
   const suggestions = useSelector(getSuggestions);
 
   const { movies, actors, shows } = suggestions;
-  const urlMap = {
-    movie: 'movie',
-    person: 'person',
-    tv: 'tv',
-  };
 
-  const renderList = (title, arr) => {
+  const renderList = (title, type, arr) => {
     const newarr = arr.slice(0, 3);
     if (newarr.length) {
       return (
@@ -25,7 +20,7 @@ export function Suggestions({ handleClick }) {
             dataSource={newarr}
             renderItem={(item) => (
               <List.Item
-                onClick={() => handleClick(`/${urlMap[item.media_type]}/${item.id}`)}
+                onClick={() => handleClick(`/${type}/${item.id}`)}
               >
                 <Typography.Text mark />
                 {item.title || item.name}
@@ -41,9 +36,9 @@ export function Suggestions({ handleClick }) {
   return (
     <div>
       <>
-        {renderList('Movies', movies)}
-        {renderList('Actors', actors)}
-        {renderList('Shows', shows)}
+        {renderList('Movies', 'movie', movies)}
+        {renderList('Actors', 'person', actors)}
+        {renderList('Shows', 'tv', shows)}
       </>
     </div>
   );
