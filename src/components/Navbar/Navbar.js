@@ -12,7 +12,7 @@ export function Navbar() {
             <div className="logo" onClick={() => {
                 history.push(`/`);
             }}>
-                <img alt="Netflix" src="https://www.seekpng.com/png/full/15-158699_netflix-logo-png-download-logo-netflix-png.png" />
+                <img alt="K_logo" src="k-512.png" />
             </div>
             <Search />
         </div>
