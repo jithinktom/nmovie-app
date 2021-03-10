@@ -12,7 +12,7 @@ export function Navbar() {
             <div className="logo" onClick={() => {
                 history.push(`/`);
             }}>
-                <img alt="K_logo" src="k-512.png" />
+                <img alt="K_logo" src="sky_logo.png" />
             </div>
             <Search />
         </div>
