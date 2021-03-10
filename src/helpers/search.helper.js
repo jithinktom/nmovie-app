@@ -23,41 +23,22 @@ const filterSearchResults = (results, searchOption) => {
         shows: shows.sort((a, b) => b.popularity - a.popularity)
     }
 }
-
-const filterMovieDetail = (movieDetail) => {
-    const actors = []
-    movieDetail.credits.cast.forEach(result => {
-        if (result.id &&
-            result.name) {
-            actors.push(result)
+const filterResourceDetails = (key, details) => {
+    const relatedData = []
+    details[key].cast.forEach(result => {
+        if (result.id && (result.title || result.name)) {
+            relatedData.push(result)
         }
     })
     return {
-        ...movieDetail,
-        credits: {
-            cast: actors
-        }
-    }
-}
-
-const filterActorDetail = (actorDetail) => {
-    const movies = []
-    actorDetail.movie_credits.cast.forEach(result => {
-        if (result.id &&
-            result.title) {
-            movies.push(result)
-        }
-    })
-    return {
-        ...actorDetail,
-        movie_credits: {
-            cast: movies
+        ...details,
+        [key]: {
+            cast: relatedData
         }
     }
 }
 
 export {
     filterSearchResults,
-    filterMovieDetail,
-    filterActorDetail
+    filterResourceDetails
 }

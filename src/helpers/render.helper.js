@@ -7,6 +7,11 @@ const renderImage = (imageUrl) => {
     return constants.DEFAULT_IMAGE;
 }
 
+const renderText = (text) => {
+    return text || constants.DEFAULT_TEXT
+}
+
 export {
-    renderImage
+    renderImage,
+    renderText
 }
