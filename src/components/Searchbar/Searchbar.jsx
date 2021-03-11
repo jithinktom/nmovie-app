@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Button, Radio } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
-import { multiSearch } from '../../app/reducer';
-import constants from '../../helpers/constants';
-import { Suggestions } from '../Suggestions/Suggestions';
+import React, { useState, useRef, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Button, Radio } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+import { multiSearch } from "../../app/reducer";
+import constants from "../../helpers/constants";
+import { Suggestions } from "../Suggestions/Suggestions";
 
-import './Searchbar.scss';
+import "./Searchbar.scss";
 
 export function Search() {
   const appHistory = useHistory();
@@ -15,9 +15,9 @@ export function Search() {
   const inputRef = useRef();
   const node = useRef();
   const dispatch = useDispatch();
-  const isHomepage = location.pathname === '/';
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchOption, setSearchOption] = useState('multi');
+  const isHomepage = location.pathname === "/";
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchOption, setSearchOption] = useState("multi");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handleSearch = (keyword) => {
@@ -35,7 +35,7 @@ export function Search() {
       appHistory.push(`/search?query=${searchTerm}&options=${option}`);
     }
     if (!searchTerm) {
-      appHistory.push('/');
+      appHistory.push("/");
     }
   };
 
@@ -53,8 +53,8 @@ export function Search() {
   };
 
   useEffect(() => {
-    const keyword = location.search.split('&')[0].split('=')[1];
-    const option = location.search.split('options=')[1] || 'multi';
+    const keyword = location.search.split("&")[0].split("=")[1];
+    const option = location.search.split("options=")[1] || "multi";
     setSearchOption(option);
     if (keyword) {
       setSearchTerm(decodeURIComponent(keyword));
@@ -65,9 +65,9 @@ export function Search() {
   }, []);
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClick);
+    document.addEventListener("mousedown", handleClick);
     return () => {
-      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener("mousedown", handleClick);
     };
   }, []);
 

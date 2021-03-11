@@ -4,16 +4,16 @@ const filterSearchResults = (results, searchOption) => {
   const shows = [];
   results.forEach((result) => {
     if (result.id && (result.title || result.name)) {
-      if (searchOption === 'person' || result.media_type === 'person') {
+      if (searchOption === "person" || result.media_type === "person") {
         actors.push(result);
-      } else if (searchOption === 'tv' || result.media_type === 'tv') {
+      } else if (searchOption === "tv" || result.media_type === "tv") {
         shows.push(result);
       } else {
         movies.push(result);
       }
       return result;
     }
-    return '';
+    return "";
   });
   return {
     actors: actors.sort((a, b) => b.popularity - a.popularity),

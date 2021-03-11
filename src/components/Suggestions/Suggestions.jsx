@@ -1,8 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { List, Typography, Divider } from 'antd';
-import { getSuggestions } from '../../app/reducer';
+import React from "react";
+import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import { List, Typography, Divider } from "antd";
+import { getSuggestions } from "../../app/reducer";
 
 export function Suggestions({ handleClick }) {
   const suggestions = useSelector(getSuggestions);
@@ -19,9 +19,7 @@ export function Suggestions({ handleClick }) {
             bordered
             dataSource={newarr}
             renderItem={(item) => (
-              <List.Item
-                onClick={() => handleClick(`/${type}/${item.id}`)}
-              >
+              <List.Item onClick={() => handleClick(`/${type}/${item.id}`)}>
                 <Typography.Text mark />
                 {item.title || item.name}
               </List.Item>
@@ -36,9 +34,9 @@ export function Suggestions({ handleClick }) {
   return (
     <div>
       <>
-        {renderList('Movies', 'movie', movies)}
-        {renderList('Actors', 'person', actors)}
-        {renderList('Shows', 'tv', shows)}
+        {renderList("Movies", "movie", movies)}
+        {renderList("Actors", "person", actors)}
+        {renderList("Shows", "tv", shows)}
       </>
     </div>
   );

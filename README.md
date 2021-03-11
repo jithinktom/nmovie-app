@@ -1,4 +1,5 @@
 # Sky Movie Database
+
 This project lets you search details of Movies, TV Shows and Actors using TMBD.
 
 Bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.

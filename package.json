@@ -35,11 +35,6 @@
       "plugin:prettier/recommended"
     ]
   },
-  "prettier": {
-    "printWidth": 90,
-    "bracketSpacing": true,
-    "trailingComma": "es5"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run prettier"

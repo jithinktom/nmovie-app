@@ -3,25 +3,25 @@ const mapPerson = (actorDetail) => ({
   poster: actorDetail.profile_path,
   description: [
     {
-      label: 'Birthday',
+      label: "Birthday",
       value: actorDetail.birthday,
     },
     {
-      label: 'Place Of Birth',
+      label: "Place Of Birth",
       value: actorDetail.place_of_birth,
     },
     {
-      label: 'Popularity',
+      label: "Popularity",
       value: actorDetail.popularity,
     },
     {
-      label: 'Biography',
+      label: "Biography",
       value: actorDetail.biography,
     },
   ],
   extraDetails: {
-    title: 'Movies',
-    type: 'movie',
+    title: "Movies",
+    type: "movie",
     data: actorDetail.movie_credits.cast,
   },
 });
@@ -31,49 +31,49 @@ const mapMovie = (movieDetail) => ({
   poster: movieDetail.poster_path,
   description: [
     {
-      label: 'Vote Average',
+      label: "Vote Average",
       value: movieDetail.vote_average,
     },
     {
-      label: 'Runtime',
+      label: "Runtime",
       value: movieDetail.runtime,
     },
     {
-      label: 'Budget',
+      label: "Budget",
       value: movieDetail.budget ? `$ ${movieDetail.budget}` : null,
     },
     {
-      label: 'Genres',
+      label: "Genres",
       value: movieDetail.genres.map((genre) => genre.name).toString(),
     },
     {
-      label: 'Popularity',
+      label: "Popularity",
       value: movieDetail.popularity,
     },
     {
-      label: 'Production Companies',
+      label: "Production Companies",
       value: movieDetail.production_companies.map((p) => p.name).toString(),
     },
     {
-      label: 'Production Countries',
+      label: "Production Countries",
       value: movieDetail.production_countries.map((p) => p.name).toString(),
     },
     {
-      label: 'Spoken Languages',
+      label: "Spoken Languages",
       value: movieDetail.spoken_languages.map((p) => p.name).toString(),
     },
     {
-      label: 'Release date',
+      label: "Release date",
       value: movieDetail.release_date,
     },
     {
-      label: 'Overview',
+      label: "Overview",
       value: movieDetail.overview,
     },
   ],
   extraDetails: {
-    title: 'Cast',
-    type: 'person',
+    title: "Cast",
+    type: "person",
     data: movieDetail.credits.cast,
   },
 });
@@ -83,55 +83,57 @@ const mapTv = (showDetail) => ({
   poster: showDetail.poster_path,
   description: [
     {
-      label: 'Vote Average',
+      label: "Vote Average",
       value: showDetail.vote_average,
     },
     {
-      label: 'First Air Date',
+      label: "First Air Date",
       value: showDetail.first_air_date,
     },
     {
-      label: 'Origin Country',
+      label: "Origin Country",
       value: showDetail.origin_country[0],
     },
     {
-      label: 'Genres',
+      label: "Genres",
       value: showDetail.genres.map((genre) => genre.name).toString(),
     },
     {
-      label: 'Popularity',
+      label: "Popularity",
       value: showDetail.popularity,
     },
     {
-      label: 'Production Companies',
+      label: "Production Companies",
       value: showDetail.production_companies.map((p) => p.name).toString(),
     },
     {
-      label: 'Seasons',
+      label: "Seasons",
       value: showDetail.seasons.map((season) => season.name).toString(),
     },
     {
-      label: 'Spoken Languages',
+      label: "Spoken Languages",
       value: showDetail.spoken_languages.map((p) => p.name).toString(),
     },
     {
-      label: 'Overview',
+      label: "Overview",
       value: showDetail.overview,
     },
   ],
   extraDetails: {
-    title: 'Cast',
-    type: 'person',
+    title: "Cast",
+    type: "person",
     data: showDetail.credits.cast,
   },
 });
 
 export const mapDetails = (resourceDetails, resource) => {
-  if (resource === 'movie') {
+  if (resource === "movie") {
     return mapMovie(resourceDetails);
-  } if (resource === 'person') {
+  }
+  if (resource === "person") {
     return mapPerson(resourceDetails);
-  } if (resource === 'tv') {
+  }
+  if (resource === "tv") {
     return mapTv(resourceDetails);
   }
   return {};

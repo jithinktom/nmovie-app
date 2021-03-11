@@ -1,12 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { filterSearchResults, filterResourceDetails } from '../../helpers/search.helper';
+import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import {
+  filterSearchResults,
+  filterResourceDetails,
+} from "../../helpers/search.helper";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export const moviesSlice = createSlice({
-  name: 'movies',
+  name: "movies",
   initialState: {
     searchResults: {
       actors: [],
@@ -34,14 +37,20 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { setResults, setSuggestions, setSelectedResource } = moviesSlice.actions;
+export const {
+  setResults,
+  setSuggestions,
+  setSelectedResource,
+} = moviesSlice.actions;
 
-export const multiSearch = (keyword, searchOption, suggestionsSearch = false) => async (
-  dispatch,
-) => {
+export const multiSearch = (
+  keyword,
+  searchOption,
+  suggestionsSearch = false
+) => async (dispatch) => {
   const API_URL = `${BASE_URL}/search/${searchOption}?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`;
   const response = await axios({
-    method: 'get',
+    method: "get",
     url: API_URL,
   });
   const { results } = response.data;
@@ -55,7 +64,7 @@ export const multiSearch = (keyword, searchOption, suggestionsSearch = false) =>
 
 export const searchRecommendations = () => async (dispatch) => {
   const response = await axios({
-    method: 'get',
+    method: "get",
     url: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
   });
   const { results } = response.data;
@@ -64,9 +73,9 @@ export const searchRecommendations = () => async (dispatch) => {
 };
 
 export const searchDetail = (resource, id) => async (dispatch) => {
-  const relatedData = resource === 'person' ? 'movie_credits' : 'credits';
+  const relatedData = resource === "person" ? "movie_credits" : "credits";
   const response = await axios({
-    method: 'get',
+    method: "get",
     url: `${BASE_URL}/${resource}/${id}?api_key=${API_KEY}&language=en-US&append_to_response=${relatedData}`,
   });
   const details = response.data;

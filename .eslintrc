@@ -6,7 +6,7 @@
   },
   "parser": "babel-eslint",
   "extends": [
-    "airbnb"
+    "airbnb", "prettier"
   ],
   "plugins": [
     "react"
@@ -17,6 +17,7 @@
   },
   "rules": {
     "no-console": 2,
+    "camelcase": 0,
     "no-param-reassign": 0,
     "react/forbid-prop-types": 0,
     "import/prefer-default-export": 0
