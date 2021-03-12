@@ -1,31 +1,24 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import renderer from "react-test-renderer";
-import { useLocation } from "react-router-dom";
-import { Router } from "react-router-dom";
+import { Router, useLocation } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import { SearchResults } from "../SearchResults";
 import { searchData, locationData } from "./mockData";
 
 test("SearchResults component rendered", () => {
   const history = createMemoryHistory();
-  useSelector.mockImplementation(() => {
-    return searchData;
-  });
+  useSelector.mockImplementation(() => searchData);
 
-  useLocation.mockImplementation(() => {
-    return locationData;
-  });
+  useLocation.mockImplementation(() => locationData);
 
-  useDispatch.mockImplementation(() => {
-    return () => {};
-  });
+  useDispatch.mockImplementation(() => () => {});
 
   const component = renderer.create(
     <Router history={history}>
       <SearchResults />
     </Router>
   );
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

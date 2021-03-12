@@ -6,18 +6,11 @@ import { Detail } from "../Detail";
 import { detailData } from "./mockData";
 
 test("Detail component rendered", () => {
-  useLocation.mockImplementation(() => {
-    return { pathName: "/movie/299537" };
-  });
-  useParams.mockImplementation(() => {
-    return { id: "299537" };
-  });
-
-  useSelector.mockImplementation(() => {
-    return detailData;
-  });
+  useLocation.mockImplementation(() => ({ pathName: "/movie/299537" }));
+  useParams.mockImplementation(() => ({ id: "299537" }));
+  useSelector.mockImplementation(() => detailData);
 
   const component = renderer.create(<Detail resource="movie" />);
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
