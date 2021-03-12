@@ -7,12 +7,12 @@ import { cardData } from "./mockData";
 
 test("Card component rendered", () => {
   const history = createMemoryHistory();
-
+  const { type, data } = cardData;
   const component = renderer.create(
     <Router history={history}>
-      <Card {...cardData} />,
+      <Card type={type} data={data} />,
     </Router>
   );
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

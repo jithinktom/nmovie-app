@@ -5,11 +5,9 @@ import { Suggestions } from "../Suggestions";
 import { suggestionsData } from "./mockData";
 
 test("Suggestions component rendered", () => {
-  useSelector.mockImplementation(() => {
-    return suggestionsData;
-  });
+  useSelector.mockImplementation(() => suggestionsData);
 
   const component = renderer.create(<Suggestions handleClick={() => {}} />);
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

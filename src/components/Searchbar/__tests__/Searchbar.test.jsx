@@ -1,14 +1,10 @@
 import React from "react";
 import ShallowRenderer from "react-test-renderer/shallow";
 import { useLocation } from "react-router-dom";
-import { Search } from "../SearchBar";
+import { Search } from "../Searchbar";
 
 test("SearchBar component rendered", () => {
-  useLocation.mockImplementation(() => {
-    return {
-      pathname: "/movie/299537",
-    };
-  });
+  useLocation.mockImplementation(() => ({ pathname: "/movie/299537" }));
 
   const renderer = new ShallowRenderer();
 
