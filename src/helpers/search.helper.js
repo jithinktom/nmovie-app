@@ -21,6 +21,7 @@ const filterSearchResults = (results, searchOption) => {
     shows: shows.sort((a, b) => b.popularity - a.popularity),
   };
 };
+
 const filterResourceDetails = (key, details) => {
   const relatedData = [];
   details[key].cast.forEach((result) => {

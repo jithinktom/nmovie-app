@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { List, Typography, Divider } from "antd";
+import { List, Divider } from "antd";
 import { getSuggestions } from "../../app/reducer";
 
 export function Suggestions({ handleClick }) {
@@ -20,7 +20,6 @@ export function Suggestions({ handleClick }) {
             dataSource={newarr}
             renderItem={(item) => (
               <List.Item onClick={() => handleClick(`/${type}/${item.id}`)}>
-                <Typography.Text mark />
                 {item.title || item.name}
               </List.Item>
             )}

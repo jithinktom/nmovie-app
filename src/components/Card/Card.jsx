@@ -15,7 +15,9 @@ export function Card({ type, data }) {
               ? {
                   backgroundImage: `url('${constants.IMAGE_BASE_URL}${image}')`,
                 }
-              : {}
+              : {
+                  backgroundImage: `url('${constants.DEFAULT_IMAGE}')`,
+                }
           }
         />
         <div className="card-body">
