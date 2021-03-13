@@ -481,7 +481,11 @@ exports[`SearchResults component rendered 1`] = `
         >
           <div
             className="card-cover"
-            style={Object {}}
+            style={
+              Object {
+                "backgroundImage": "url('https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg')",
+              }
+            }
           />
           <div
             className="card-body"

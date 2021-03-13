@@ -25,57 +25,21 @@ exports[`Suggestions component rendered 1`] = `
           className="ant-list-items"
         >
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Captain Marvel
           </li>
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Marvel's Behind the Mask
           </li>
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Captain Marvel 2
           </li>
         </ul>
@@ -105,21 +69,9 @@ exports[`Suggestions component rendered 1`] = `
           className="ant-list-items"
         >
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Marve Feinberg
           </li>
         </ul>
@@ -149,57 +101,21 @@ exports[`Suggestions component rendered 1`] = `
           className="ant-list-items"
         >
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Marvel Studios: Legends
           </li>
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Marvel's Agents of S.H.I.E.L.D.
           </li>
           <li
-            className="ant-list-item ant-list-item-no-flex"
+            className="ant-list-item"
             onClick={[Function]}
           >
-            <span
-              className="ant-typography"
-              style={
-                Object {
-                  "WebkitLineClamp": undefined,
-                }
-              }
-            >
-              <mark>
-                
-              </mark>
-            </span>
             Marvel's Daredevil
           </li>
         </ul>
